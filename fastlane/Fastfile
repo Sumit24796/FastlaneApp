@@ -27,7 +27,7 @@ xamarin_update_configuration(
 property: 'CodesignProvision',
 value: 'IDA0093 MobileApp Provisioning Profile',
 xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
-build_type: 'Debug',
+build_type: 'Release',
 platform: 'iPhone'
 )
 
