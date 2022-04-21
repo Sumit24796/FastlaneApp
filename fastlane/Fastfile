@@ -1,26 +1,44 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
+# More documentation about how to customize your build
+# can be found here:
+# https://docs.fastlane.tools
+fastlane_version "1.109.0"
 
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+# This value helps us track success metrics for Fastfiles
+# we automatically generate. Feel free to remove this line
+# once you get things running smoothly!
+#generated_fastfile_id "eaa63146-cce2-47fa-b5d5-4884f76ecada"
 
-default_platform(:ios)
-platform :ios do
-  desc "Description of what the lane does"
-  lane :generate_ipa_develop do 
-  get_certificates
-  get_provisioning_profile   # invokes sigh 
-  increment_build_number
-  pilot(username: "your_account_you_want_to_publish_the_build")
-  build_app
-  end
+default_platform :ios
+
+# Fastfile actions accept additional configuration, but
+# don't worry, fastlane will prompt you for required
+# info which you can add here later
+lane :beta do
+
+ xamarin_update_configuration(
+property: 'CodesignKey',
+value: 'iApple Distribution: Medicom Innovation Partner A/S (4A42X7FYTN)',
+xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+build_type: ‘Release’,
+platform: 'iPhone'
+)
+
+xamarin_update_configuration(
+property: 'CodesignProvision',
+value: 'IDA0093 MobileApp Provisioning Profile',
+xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+build_type: 'Debug',
+platform: 'iPhone'
+)
+
+  
+# build your iOS app
+ ipa(
+    solution: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.sln',
+    platform: 'iPhone',
+    target: 'Build',
+    project: 'JenkinsFastLaneTestApp.iOS',
+    build_type: 'Release',
+    print_all: true
+  )
 end
