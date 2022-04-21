@@ -33,7 +33,7 @@ platform: 'iPhone'
 
   
 # build your iOS app
- ipa(
+ xamarin_build(
     solution: '/Users/susingh/.jenkins/workspace/FastlaneApp18Aug/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.sln',
     platform: 'iPhone',
     target: 'Build',
