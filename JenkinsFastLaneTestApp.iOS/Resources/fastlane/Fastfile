@@ -1,0 +1,44 @@
+# More documentation about how to customize your build
+# can be found here:
+# https://docs.fastlane.tools
+fastlane_version "1.109.0"
+
+# This value helps us track success metrics for Fastfiles
+# we automatically generate. Feel free to remove this line
+# once you get things running smoothly!
+#generated_fastfile_id "eaa63146-cce2-47fa-b5d5-4884f76ecada"
+
+default_platform :ios
+
+# Fastfile actions accept additional configuration, but
+# don't worry, fastlane will prompt you for required
+# info which you can add here later
+lane :beta do
+
+ xamarin_update_configuration(
+property: 'CodesignKey',
+value: 'iApple Distribution: Medicom Innovation Partner A/S (4A42X7FYTN)',
+xamarin_project_file: '/Users/susingh/.jenkins/workspace/FastlaneApp18Aug/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+build_type: ‘Release’,
+platform: 'iPhone'
+)
+
+xamarin_update_configuration(
+property: 'CodesignProvision',
+value: 'IDA0093 MobileApp Provisioning Profile',
+xamarin_project_file: '/Users/susingh/.jenkins/workspace/FastlaneApp18Aug/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+build_type: 'Release',
+platform: 'iPhone'
+)
+
+  
+# build your iOS app
+ xamarin_build(
+    solution: '/Users/susingh/.jenkins/workspace/FastlaneApp18Aug/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.sln',
+    platform: 'iPhone',
+    target: 'Build',
+    project: 'JenkinsFastLaneTestApp.iOS',
+    build_type: 'Release',
+    print_all: true
+  )
+end
