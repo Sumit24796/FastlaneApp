@@ -36,6 +36,18 @@ platform: 'iPhone'
 
   
 # build your iOS app
+
+ build_app(
+    export_method: "ad-hoc",
+    export_options: {
+      provisioningProfiles: { 
+        "com.phillipsmedisize.ida0093" => "71abf8e4-d402-44b6-8591-04a1ccc1b803.mobileprovision"
+      }
+    }
+  clean: true,
+  output_directory: "/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp"
+  )
+
  xamarin_build(
     solution: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.sln',
     platform: 'iPhone',
