@@ -16,8 +16,33 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+ desc "Description of what the lane does"
+  lane :generate_ipa_develop do 
+  xamarin_update_configuration(
+property: 'CodesignKey',
+value: 'iApple Distribution: Medicom Innovation Partner A/S (4A42X7FYTN)',
+xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+build_type: ‘Release’,
+platform: 'iPhone'
+)
+
+xamarin_update_configuration(
+property: 'CodesignProvision',
+value: 'IDA0093 MobileApp Provisioning Profile',
+xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+build_type: 'Release',
+platform: 'iPhone'
+)
+
+  
+# build your iOS app
+ xamarin_build(
+    solution: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.sln',
+    platform: 'iPhone',
+    target: 'Build',
+    project: 'JenkinsFastLaneTestApp.iOS',
+    build_type: 'Release',
+    print_all: true
+  )
   end
 end
