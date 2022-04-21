@@ -21,7 +21,7 @@ platform :ios do
   xamarin_update_configuration(
 property: 'CodesignKey',
 value: 'Apple Distribution: Medicom Innovation Partner A/S (4A42X7FYTN)',
-xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+xamarin_project_file: 'JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
 build_type: ‘Release’,
 platform: 'iPhone'
 )
@@ -29,7 +29,7 @@ platform: 'iPhone'
 xamarin_update_configuration(
 property: 'CodesignProvision',
 value: 'IDA0093 MobileApp Provisioning Profile',
-xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
+xamarin_project_file: 'JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
 build_type: 'Release',
 platform: 'iPhone'
 )
@@ -37,22 +37,11 @@ platform: 'iPhone'
   
 # build your iOS app
 
- build_app(
-    export_method: "ad-hoc",
-    export_options: {
-      provisioningProfiles: { 
-        "com.phillipsmedisize.ida0093" => "71abf8e4-d402-44b6-8591-04a1ccc1b803.mobileprovision"
-      }
-    }
-  clean: true,
-  output_directory: "/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp"
-  )
-
  xamarin_build(
-    solution: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.sln',
+    solution: 'JenkinsFastLaneTestApp.sln',
     platform: 'iPhone',
     target: 'Build',
-    project: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS',
+    project: 'JenkinsFastLaneTestApp.iOS',
     build_type: 'Release',
     print_all: true
   )
