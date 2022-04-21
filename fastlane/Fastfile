@@ -20,7 +20,7 @@ platform :ios do
   lane :generate_ipa_develop do 
   xamarin_update_configuration(
 property: 'CodesignKey',
-value: 'iApple Distribution: Medicom Innovation Partner A/S (4A42X7FYTN)',
+value: 'Apple Distribution: Medicom Innovation Partner A/S (4A42X7FYTN)',
 xamarin_project_file: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS/JenkinsFastLaneTestApp.iOS.csproj',
 build_type: ‘Release’,
 platform: 'iPhone'
