@@ -40,7 +40,7 @@ platform: 'iPhone'
     solution: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.sln',
     platform: 'iPhone',
     target: 'Build',
-    project: 'JenkinsFastLaneTestApp.iOS',
+    project: '/Users/susingh/Desktop/FastlaneApp/JenkinsFastLaneTestApp/JenkinsFastLaneTestApp.iOS',
     build_type: 'Release',
     print_all: true
   )
